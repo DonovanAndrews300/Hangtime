@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
 
-let HangoutSchema = new Schema({
+let HangoutSchema = new mongoose.Schema({
     name: String,
     location:String,
     cost_range:Number,
