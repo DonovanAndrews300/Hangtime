@@ -25,7 +25,6 @@ export default class AllHangouts extends Component {
             <Link to="/update" classname="nav-link">
             <button className="btn btn-primary">Update Hangout</button>
             </Link>
-        
         </div>)
     }
 }

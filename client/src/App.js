@@ -1,10 +1,10 @@
 import React from 'react';
-import {BrowserRouter as Router,Route,Link} from "react-router-dom";
+import {BrowserRouter as Router,Route,} from "react-router-dom";
 import AllHangouts from './components/AllHangouts';
 import CreateHangout from './components/CreateHangout';
 import UpdateHangout from './components/UpdateHangout';
 import RandomHangout from './components/RandomHangout';
-import axios from 'axios';
+//import axios from 'axios';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App(){

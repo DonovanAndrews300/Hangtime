@@ -1,7 +1,17 @@
 import React, {Component} from 'react';
 
 export default class UpdateHangout extends Component{
-    render(){
+    constructor(props){
+            super(props)
+
+            this.state = {
+                name:"",
+                location:"",
+                cost:0,
+            }
+        }
+        
+        render(){
         return(
             <div>
                 <div className="container">
@@ -18,6 +28,7 @@ export default class UpdateHangout extends Component{
                             <input 
                             required
                             type="text"
+                            value={this.state.name}
                             className="form-control"/>
                         </div>
                         <div className="form-group">
@@ -25,6 +36,7 @@ export default class UpdateHangout extends Component{
                             <input
                             required
                             type="text"
+                            value={this.state.location}
                             className="form-control"/>
                         </div>
                         <div className="form-group">
@@ -32,6 +44,7 @@ export default class UpdateHangout extends Component{
                             <input
                             required
                             type="text"
+                            value={this.state.cost}
                             className="form-control"/>
                         </div>
                         <div className="form-group">
