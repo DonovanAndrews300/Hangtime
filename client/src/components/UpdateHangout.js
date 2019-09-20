@@ -3,6 +3,10 @@ import React, {Component} from 'react';
 export default class UpdateHangout extends Component{
     constructor(props){
             super(props)
+            this.onChangeName=this.onChangeName.bind(this);
+            this.onChangeLocation=this.onChangeLocation.bind(this);
+            this.onChangeCost=this.onChangeCost.bind(this);
+            this.onSubmit=this.onSubmit.bind(this);
 
             this.state = {
                 name:"",
@@ -11,6 +15,33 @@ export default class UpdateHangout extends Component{
             }
         }
         
+        onChangeName(e){
+            this.setState({
+                name:e.target.value
+            });
+        }
+        onChangeLocation(e){
+            this.setState({
+                location:e.target.value
+            });
+        }
+        onChangeCost(e){
+            this.setState({
+                cost:e.target.value
+            });
+        }
+
+        onSubmit(e){
+            e.preventDefault(e);
+
+            const hangout ={
+                name:this.state.name,
+                location:this.state.location,
+                cost:this.state.cost
+            }
+            console.log(hangout)
+        }
+
         render(){
         return(
             <div>
@@ -22,13 +53,14 @@ export default class UpdateHangout extends Component{
                     </h3>
                 </div>
                 <div className="panel-body">
-                    <form>
+                    <form onSubmit={this.onSubmit}> 
                         <div className="form-group" >
                             <label>Name:</label>
                             <input 
                             required
                             type="text"
                             value={this.state.name}
+                            onChange={this.onChangeName}
                             className="form-control"/>
                         </div>
                         <div className="form-group">
@@ -37,6 +69,7 @@ export default class UpdateHangout extends Component{
                             required
                             type="text"
                             value={this.state.location}
+                            onChange={this.onChangeLocation}
                             className="form-control"/>
                         </div>
                         <div className="form-group">
@@ -44,11 +77,12 @@ export default class UpdateHangout extends Component{
                             <input
                             required
                             type="text"
+                            onChange={this.onChangeCost}
                             value={this.state.cost}
                             className="form-control"/>
                         </div>
                         <div className="form-group">
-                            <input type="sumbit" value="Submit" className="btn btn-primary"/>
+                            <input type="submit" value="Submit" className="btn btn-primary"/>
                         </div>
                     </form>
             </div>

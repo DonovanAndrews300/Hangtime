@@ -2,6 +2,13 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
 export default class AllHangouts extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+        hangouts:[]
+    }
+}
+
     render(){
         return(
         <div>
@@ -15,16 +22,16 @@ export default class AllHangouts extends Component {
                 </tr>
             </thead>
             <tbody>
-                
+             
             </tbody>
             </table>
-            <Link to="/add" classname="nav-link">
+            <Link to="/add" className="nav-link">
             <button className="btn btn-primary">New Hangout</button>
             </Link>
 
-            <Link to="/update" classname="nav-link">
+            <Link to="/update" className="nav-link">
             <button className="btn btn-primary">Update Hangout</button>
-            </Link>
+            </Link>   
         </div>)
     }
 }
