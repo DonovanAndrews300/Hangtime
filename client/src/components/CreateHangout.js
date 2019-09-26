@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import axios from 'axios'
 
  export default class CreateHangout extends Component{
      constructor(props){
@@ -42,7 +43,10 @@ import React, {Component} from 'react'
             location:this.state.location,
             cost:this.state.cost
         }
-        console.log(hangout);
+        
+        axios.post('http://localhost:4000/hangout/add',hangout)
+            .then(res => console.log(res.data));
+            
         
     }
 

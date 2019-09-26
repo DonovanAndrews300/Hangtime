@@ -37,24 +37,26 @@ router.route('/').get((req, res,) => {
     });
 
 //Updates Hangout 
-router.put('hangout/:id', function(req, res, next){
-    Hangout.findByIdAndUpdate(req.params.id, req.body, function(err, post){
-        if(err) return next(err);
-        res.json(post);
-    });
-});
+
+  
+  router.route('/update/:id').post((req, res) => {
+    Hangout.findById(req.params.id)
+      .then(hangout => {
+        hangout.name = req.body.name;
+        hangout.location = req.body.location;
+        hangout.cost = req.body.cost;
+  
+        hangout.save()
+          .then(() => res.json('updated'))
+          .catch(err => res.status(400).json('Error: ' + err));
+      })
+      .catch(err => res.status(400).json('Error: ' + err));
+  });
+
 //Deletes a hangout 
-router.delete('hangout/:id', function(req, res, next) {
-    Hangout.findByIdAndRemove(req.params.id, req.body, function (err, post){
-        if(err) return next(err);
-        res.json(post);
-    });
-});
-
+router.route('/:id').delete((req, res) => {
+    Hangout.findByIdAndDelete(req.params.id)
+      .then(() => res.json('deleted.'))
+      .catch(err => res.status(400).json('Error: ' + err));
+  });
 module.exports = router;
-
-
-
-
-
-

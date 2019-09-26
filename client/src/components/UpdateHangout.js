@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 export default class UpdateHangout extends Component{
     constructor(props){
@@ -13,6 +14,16 @@ export default class UpdateHangout extends Component{
                 location:"",
                 cost:0,
             }
+        }
+    componentDidMount() {
+        axios.get('http://localhost:4000/hangout/'+ this.props.match.params.id)
+            .then(res => {
+                this.setState({
+                    name:res.data.name,
+                    location:res.data.location,
+                    cost:res.data.cost
+                })
+            }) 
         }
         
         onChangeName(e){
@@ -39,7 +50,11 @@ export default class UpdateHangout extends Component{
                 location:this.state.location,
                 cost:this.state.cost
             }
-            console.log(hangout)
+
+            axios.post('http://localhost:4000/hangout/update' + this.props.match.params.id,hangout)
+                .then(res => console.log(res.data));
+            
+            window.location ="/";
         }
 
         render(){
