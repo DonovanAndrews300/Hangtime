@@ -43,7 +43,13 @@ export default class RandomHangout extends Component {
                     </ul>
                 </div>
                 <button className="btn btn-light">
+                <a href="#" onClick={this.randomHangout}>Get Hangout</a>
+                </button> 
+                <button className="btn btn-light">
                 <Link to="/all">All Hangouts</Link>
+                </button>
+                <button className="btn btn-light">
+                <Link to="/add">New Hangout</Link>
                 </button>
                 <button className="btn btn-light">
                 <a href="#" onClick={this.randomHangout}>Get Hangout</a>
