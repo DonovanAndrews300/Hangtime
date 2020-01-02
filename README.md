@@ -13,5 +13,5 @@ npm start (for client and server folders)
 ## Built With
 
 * React on the front-end
-* Node and express on thee backend
+* Node and express on the backend
 * Mongodb as the Database
